@@ -13,13 +13,16 @@ import com.example.semana7_1.R
 import com.squareup.picasso.OkHttp3Downloader
 import com.squareup.picasso.Picasso
 
-class CharacterAdapter(val characters: List<Character>,val context: Context): Adapter<CharacterAdapter.ViewHolder>() {
+class CharacterAdapter(val characters: List<Character>,val context: Context, val itemClickListener: OnItemClickListener): Adapter<CharacterAdapter.ViewHolder>() {
 
     class ViewHolder(val view: View):RecyclerView.ViewHolder(view){
         val ivProfile=view.findViewById<ImageView>(R.id.ivProfile)
         val tvName=view.findViewById<TextView>(R.id.tvName)
         val cvCharacter=view.findViewById<CardView>(R.id.cvCharacter)
 
+    }
+    interface OnItemClickListener{
+        fun onItemClicked(character: models.Character)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterAdapter.ViewHolder {
@@ -30,6 +33,10 @@ class CharacterAdapter(val characters: List<Character>,val context: Context): Ad
     override fun onBindViewHolder(holder: CharacterAdapter.ViewHolder, position: Int) {
         val character=characters[position]
         holder.tvName.text=character.name
+
+        holder.cvCharacter.setOnClickListener(){
+            itemClickListener.onItemClicked(character)
+        }
 
         //cargando la img
         val picBuilder=Picasso.Builder(context)

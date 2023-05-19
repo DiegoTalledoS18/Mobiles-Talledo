@@ -7,7 +7,7 @@
     tools:context=".controller.activity.CharacterDetail">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imgCharacterDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
@@ -22,9 +22,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="TextView"
+        android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imgCharacterDetail"
+        tools:text="Name" />
 
     <TextView
         android:id="@+id/tvGenderDetail"
@@ -34,7 +37,8 @@
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNameDetails" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNameDetails"
+        tools:text="Gender" />
 
     <TextView
         android:id="@+id/tvBirthDayDetail"
@@ -44,5 +48,20 @@
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGenderDetail" />
+        app:layout_constraintTop_toBottomOf="@+id/tvGenderDetail"
+        tools:text="Birthday" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingFavActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        android:foregroundTint="#FFFFFF"
+        android:tint="#FFFFFF"
+        app:backgroundTint="#00BCD4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:srcCompat="@drawable/baseline_favorite_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>
