@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
         fit: StackFit.expand,
         children: <Widget> [
           Image(
-            image: AssetImage("lib/assets/clone.jpg"),
+            image: AssetImage("lib/assets/vader.png"),
             fit: BoxFit.cover,
             color: Colors.white,
             colorBlendMode: BlendMode.darken,
@@ -44,22 +45,50 @@ class _LoginPageState extends State<LoginPage> {
                 size: 100.0,
               ),
               Form(
-                  child: Column(
-                    children: <Widget>[
-                      TextFormField(
-                        decoration: InputDecoration(
-                          labelText: "Enter e-mail"
-                        ),
-                        keyboardType: TextInputType.emailAddress,
+                  child: Theme(
+                    data:ThemeData(
+                    brightness: Brightness.dark,primarySwatch: Colors.red,
+                      inputDecorationTheme: InputDecorationTheme(
+                        labelStyle: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20
+                        )
                       ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            labelText: "Enter password"
-                        ),
-                        keyboardType: TextInputType.text,
-                        obscureText: true,
-                      )
-                    ],
+                    ),
+                    child: Container(
+                      padding: EdgeInsets.all(35),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          TextFormField(
+                            decoration: InputDecoration(
+                              labelText: "Enter e-mail"
+                            ),
+                            keyboardType: TextInputType.emailAddress,
+                          ),
+                          TextFormField(
+                            decoration: InputDecoration(
+                                labelText: "Enter password"
+                            ),
+                            keyboardType: TextInputType.text,
+                            obscureText: true,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 30),
+                            child: MaterialButton(
+                              height: 60,
+                              minWidth: 60,
+                              splashColor: Colors.black,
+                                color: Colors.red,
+                                textColor: Colors.white,
+                                child: Icon(FontAwesomeIcons.rightToBracket),
+                                onPressed: (){
+
+                                }),
+                          )
+                        ],
+                      ),
+                    ),
                   )
               )
             ],
