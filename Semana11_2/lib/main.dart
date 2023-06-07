@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'mycontactDetail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -63,9 +64,17 @@ class _MyContactListState extends State<MyContactList> {
               leading: CircleAvatar(
                 backgroundImage:NetworkImage(data?[i]['picture']['thumbnail']),
               ),
+              onTap: (){
+                Navigator.push(
+                    context, MaterialPageRoute(
+                    builder: (BuildContext context)=>
+                        MyContactDetail(data?[i])
+                ));
+              },
             );
           })
     );
   }
 
 }
+
